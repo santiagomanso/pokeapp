@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <>
       {/* phone navigation */}
-      <div className='lg:hidden  select-none bg-slate-100 font-poppins'>
+      <div className='lg:hidden  select-none font-poppins'>
         <div className='flex items-center gap-2 text-lg p-3'>
           <a href='/' className=''>
             <span>Poke</span>{' '}
@@ -71,7 +71,7 @@ const Navbar = () => {
       </div>
 
       {/* PC navigation */}
-      <div className='font-poppins hidden lg:flex justify-between px-24 py-4 bg-neutral-100/90 shadow-md items-center select-none'>
+      <div className='font-poppins hidden lg:flex justify-between px-24 py-4 bg-white shadow-md items-center select-none rounded-t-xl'>
         <div className='flex items-center gap-2 text-xl group'>
           <a href='/' className='text-xl'>
             Poke <span className='text-action font-semibold'>App</span>
