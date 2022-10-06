@@ -88,7 +88,7 @@ const Card = ({ name = '', id = '', type = '', stats = '', desc = '' }) => {
   }, [type])
 
   return (
-    <div className='w-5/6 flex border-4 border-gray-800/20 rounded-lg h-[30vh]'>
+    <div className='card w-5/6 flex border-4 border-gray-800/20 rounded-lg h-[30vh]'>
       <div className='w-full flex flex-col px-4 py-2 gap-2 overflow-auto'>
         <h1>{name}</h1>
         <p>{desc}</p>
