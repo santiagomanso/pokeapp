@@ -12,11 +12,18 @@ const Navbar = () => {
   return (
     <>
       {/* phone navigation */}
-      <div className='lg:hidden  select-none font-poppins'>
-        <div className='flex items-center gap-2 text-lg p-3'>
-          <a href='/' className=''>
-            <span>Poke</span>{' '}
-            <span className='font-semibold text-action'>App</span>
+      <div className='bg-white lg:hidden  select-none font-poppins'>
+        <div className='text-lg p-3'>
+          <a href='/' className='flex gap-2'>
+            <div className='flex gap-1 items-center'>
+              <img
+                alt='pokeball'
+                src='https://img.icons8.com/color/48/000000/pokeball--v1.png'
+                className='h-7'
+              />
+              <span>Poke</span>{' '}
+              <span className='font-semibold text-action'>Dex</span>
+            </div>
           </a>
         </div>
         {showSidebar ? (
@@ -72,9 +79,17 @@ const Navbar = () => {
 
       {/* PC navigation */}
       <div className='font-poppins hidden lg:flex justify-between px-24 py-4 bg-white shadow-md items-center select-none rounded-t-xl'>
-        <div className='flex items-center gap-2 text-xl group'>
-          <a href='/' className='text-xl'>
-            Poke <span className='text-action font-semibold'>App</span>
+        <div className='flex items-center text-xl group'>
+          <a href='/' className='flex gap-2'>
+            <div className='flex gap-1 items-center'>
+              <img
+                alt='pokeball'
+                src='https://img.icons8.com/color/48/000000/pokeball--v1.png'
+                className='h-7'
+              />
+              <span>Poke</span>{' '}
+              <span className='font-semibold text-action'>Dex</span>
+            </div>
           </a>
         </div>
         <div className='flex gap-14 text-xl items-center'>

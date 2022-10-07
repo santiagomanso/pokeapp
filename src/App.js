@@ -7,13 +7,13 @@ import { PokeProvider } from './context/PokeContext'
 function App() {
   return (
     <PokeProvider>
-      <div className=' text-2xl h-screen w-[100vw] flex justify-center pt-20'>
+      <div className=' text-2xl h-screen w-[100vw] flex justify-center  lg:pt-20'>
         <img
           src='https://www.pngall.com/wp-content/uploads/4/Pokeball-PNG-Free-Download.png'
           alt='bg'
           className='absolute bottom-0 right-0 z-0'
         />
-        <div className='h-3/4 w-3/4 bg-white/70 rounded-xl z-10 opacity-80'>
+        <div className='h-full lg:h-3/4  w-full lg:w-3/4  lg:rounded-xl z-10 opacity-100'>
           <Navbar />
           <div className='relative h-full w-full'>
             {' '}
