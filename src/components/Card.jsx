@@ -112,22 +112,26 @@ const Card = ({ name = '', id = '', type = '', stats = '', height = '' }) => {
 
   return (
     <div className='card w-full lg:w-5/6 flex border-4 border-gray-800/20 rounded-lg h-[30vh]'>
-      <div className='w-full flex flex-col px-4 py-2 gap-2 overflow-auto'>
-        <h1>{name}</h1>
-        <p>ID: {id}</p>
-        <p>{height}0cm</p>
-        <p>
-          {area.length > 0 ? (
-            `found in: ${area[0].location_area.name}`
-          ) : (
-            <div className='flex items-baseline justify-evenly gap-2 px-2 py-2 bg-red-400 text-red-600 rounded-lg border-2 border-white/50'>
-              <i className='fa-solid fa-triangle-exclamation'></i>
-              <span className='text-lg'>no encounter area</span>
-              <i className='fa-solid fa-triangle-exclamation'></i>
-            </div>
-          )}
-        </p>
-      </div>
+      {id ? (
+        <div className='w-full flex flex-col px-4 py-2 gap-2 overflow-auto'>
+          <h1>{name}</h1>
+          <p>ID: {id}</p>
+          <p>{height}0cm</p>
+          <p>
+            {area.length > 0 ? (
+              `found in: ${area[0].location_area.name}`
+            ) : (
+              <div className='flex items-baseline justify-evenly gap-2 px-2 py-2 bg-red-400 text-red-600 rounded-lg border-2 border-white/50'>
+                <i className='fa-solid fa-triangle-exclamation'></i>
+                <span className='text-lg'>no encounter area</span>
+                <i className='fa-solid fa-triangle-exclamation'></i>
+              </div>
+            )}
+          </p>
+        </div>
+      ) : (
+        ''
+      )}
       <div
         className={`${bg} w-1/2 flex flex-col justify-center gap-5 items-center rounded-lg`}
       >
