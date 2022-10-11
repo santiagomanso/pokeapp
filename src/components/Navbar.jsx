@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   //variables
@@ -14,7 +15,7 @@ const Navbar = () => {
       {/* phone navigation */}
       <div className='bg-white lg:hidden  select-none font-poppins'>
         <div className='text-lg p-3'>
-          <a href='/' className='flex gap-2'>
+          <Link to='/' className='flex gap-2'>
             <div className='flex gap-1 items-center'>
               <img
                 alt='pokeball'
@@ -24,7 +25,7 @@ const Navbar = () => {
               <span>Poke</span>{' '}
               <span className='font-semibold text-action'>Dex</span>
             </div>
-          </a>
+          </Link>
         </div>
         {showSidebar ? (
           <button
@@ -55,24 +56,19 @@ const Navbar = () => {
         ${showSidebar ? 'translate-x-0 ' : 'translate-x-full'}`}
         >
           <div className='flex gap-4 w-1/3'>
-            <a onClick={toggleBar} href='/' className='text-2xl'>
+            <Link onClick={toggleBar} to='/' className='text-2xl'>
               Home
-            </a>
+            </Link>
           </div>
           <div className='flex gap-4 w-1/3'>
-            <a onClick={toggleBar} href='/search' className='text-2xl'>
+            <Link onClick={toggleBar} to='/search' className='text-2xl'>
               Search
-            </a>
+            </Link>
           </div>
           <div className='flex gap-4 w-1/3'>
-            <a onClick={toggleBar} href='/' className='text-2xl'>
+            <Link onClick={toggleBar} to='/' className='text-2xl'>
               List
-            </a>
-          </div>
-          <div className='flex gap-4 w-1/3'>
-            <a onClick={toggleBar} href='/new' className='text-2xl'>
-              Create Pokemon
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -80,7 +76,7 @@ const Navbar = () => {
       {/* PC navigation */}
       <div className='font-poppins hidden lg:flex justify-between px-24 py-4 bg-white shadow-md items-center select-none rounded-t-xl'>
         <div className='flex items-center text-xl group'>
-          <a href='/' className='flex gap-2'>
+          <Link to='/' className='flex gap-2'>
             <div className='flex gap-1 items-center'>
               <img
                 alt='pokeball'
@@ -90,18 +86,15 @@ const Navbar = () => {
               <span>Poke</span>{' '}
               <span className='font-semibold text-action'>Dex</span>
             </div>
-          </a>
+          </Link>
         </div>
         <div className='flex gap-14 text-xl items-center'>
-          <a href='/search' className='flex items-center gap-2 group'>
+          <Link to='/' className='flex items-center gap-2 group'>
             <span>Search</span>
-          </a>
-          <a href='/' className='flex items-center gap-2 group'>
+          </Link>
+          <Link to='/list' className='flex items-center gap-2 group'>
             <span>List</span>
-          </a>
-          <a href='/new' className='flex items-center gap-2 group'>
-            <span>Create Pokemon</span>
-          </a>
+          </Link>
         </div>
       </div>
     </>
