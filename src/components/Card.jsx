@@ -2,7 +2,16 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import pokeball from '../assets/pokebola-blanca.png'
 
-const Card = ({ name = '', id = '', type = '', stats = '', height = '' }) => {
+const Card = ({
+  name = '',
+  id = '',
+  type = '',
+  stats = '',
+  height = '',
+  cardHeight = 'h-[30vh]',
+  cardWidth = 'w-full lg:w-5/6', //width initialized to full width and from large screens almost full when call from another component a given width will override this value
+}) => {
+  console.log(name)
   const [img, setImg] = useState('')
   const [bg, setBg] = useState('')
   const [gradient, setGradient] = useState('')
@@ -168,19 +177,18 @@ const Card = ({ name = '', id = '', type = '', stats = '', height = '' }) => {
       const { data } = await axios.get(endpoint)
       if (data !== []) {
         setArea(data)
-        console.log('data area:', data)
       }
     } catch (error) {
-      console.log(error)
       setArea('Pokemon has no encounter area')
     }
   }
 
   return (
-    <div
-      className={`${gradient} font-primary card w-full lg:w-5/6 flex border-4 border-gray-800/20 rounded-lg h-[30vh]`}
+    <a
+      href={`/details/${id}?`}
+      className={`${gradient} font-primary  ${cardWidth} ${cardHeight} flex border-4 border-gray-800/20 rounded-lg `}
     >
-      {id ? (
+      {id || name ? (
         <div className='flex w-full'>
           <div
             className={` w-full rounded-lg flex flex-col px-4 py-2 gap-2 overflow-auto`}
@@ -215,7 +223,7 @@ const Card = ({ name = '', id = '', type = '', stats = '', height = '' }) => {
       ) : (
         ''
       )}
-    </div>
+    </a>
   )
 }
 

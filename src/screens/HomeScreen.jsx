@@ -27,6 +27,7 @@ const HomeScreen = () => {
   }, [debouncedText, search]) //useEffect will listen to changes in those variables / states and trigger itself
 
   const getPokemon = async () => {
+    console.log('peticion GET')
     try {
       const { data } = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${debouncedText.toLocaleLowerCase()}` //debounced txt here to prevent multiples queries to endpoint
@@ -63,10 +64,10 @@ const HomeScreen = () => {
           </span>
           <Bulletwords handleKeyword={handleKeyword} />
         </div>
-        <i className=' fa-solid fa-magnifying-glass group-hover:rotate-12 group-hover:scale-125 duration-700 select-none'></i>
+        <i className=' fa-solid text-center fa-magnifying-glass group-hover:rotate-12 group-hover:scale-125 duration-700 select-none'></i>
       </LeftContainer>
       <RightContainer>
-        <div className='flex flex-col w-full items-center select-none'>
+        <div className=' flex flex-col w-full h-full justify-start lg:justify-center items-center gap-10 select-none'>
           <div className=' relative w-full  lg:w-5/6 group'>
             <input
               className='w-full  rounded-lg px-2 py-4 md:py-3 border-4 border-gray-800/20 bg-transparent text-white/70 outline-none tracking-wide'
@@ -75,20 +76,20 @@ const HomeScreen = () => {
               onClick={handleReset}
               onChange={(e) => handleChange(e)}
             />
-            <i className='fa-brands fa-searchengin text-4xl absolute bottom-3 right-2 text-gray-800/20 group-hover:text-white/40'></i>
+            <i className='fa-brands fa-searchengin flex text-4xl absolute bottom-3 right-2 text-gray-800/20 group-hover:text-white/40'></i>
           </div>
+          {pokemon ? (
+            <Card
+              name={pokemon.name}
+              id={pokemon.id}
+              type={pokemon.types[0].type.name}
+              stats='15, 20'
+              height={pokemon.height}
+            />
+          ) : (
+            <Card /> //is there is no pokemon an empty card will be rendered to mantein aspect of the flex-col items-center on this right container
+          )}{' '}
         </div>
-        {pokemon ? (
-          <Card
-            name={pokemon.name}
-            id={pokemon.id}
-            type={pokemon.types[0].type.name}
-            stats='15, 20'
-            height={pokemon.height}
-          />
-        ) : (
-          <Card /> //is there is no pokemon an empty card will be rendered to mantein aspect of the flex-col items-center on this right container
-        )}
       </RightContainer>
     </>
   )
